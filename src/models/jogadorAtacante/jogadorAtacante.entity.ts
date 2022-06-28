@@ -12,18 +12,18 @@ export class Atacante extends Jogador {
     pCamisa: number
   ) {
     super(pNome, pData, pCamisa);
-    this.velocidade = pVelocidade;
-    this.tecnica = pTecnica;
+    this.velocidade = this.Pontos(pVelocidade);
+    this.tecnica = this.Pontos(pTecnica);
     this.setHabilidade();
     this.setFuncao();
   }
 
   public setVelocidade(velocidade: number) {
-    this.velocidade = this.velocidade;
+    this.velocidade = this.Pontos(velocidade);
   }
 
   public setTecnica(tecnica: number) {
-    this.tecnica = this.tecnica;
+    this.tecnica = this.Pontos(tecnica);
   }
 
   public setHabilidade() {
@@ -40,5 +40,15 @@ export class Atacante extends Jogador {
 
   public getTecnica(): number {
     return this.tecnica;
+  }
+
+  private Pontos(pontos: number): number {
+    if (pontos < 0) {
+      return 0;
+    } else if (pontos > 100) {
+      return 100;
+    } else {
+      return pontos;
+    }
   }
 }

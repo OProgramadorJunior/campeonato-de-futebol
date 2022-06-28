@@ -12,18 +12,18 @@ export class Defensor extends Jogador {
     pCamisa: number
   ){
     super(pNome, pData, pCamisa);
-    this.cobertura = pCobertura;
-    this.desarme = pDesarme;
+    this.cobertura = this.Pontos(pCobertura);
+    this.desarme = this.Pontos(pDesarme);
     this.setHabilidade();
     this.setFuncao();
   }
 
   public setCobertura(pCobertura: number) {
-    this.cobertura = pCobertura;
+    this.cobertura = this.Pontos(pCobertura);
   }
 
   public setDesarme(pDesarme: number) {
-    this.desarme = pDesarme;
+    this.desarme = this.Pontos(pDesarme);
   }
 
   public setHabilidade() {
@@ -40,5 +40,15 @@ export class Defensor extends Jogador {
 
   public getDesarme(): number {
     return this.desarme;
+  }
+
+  private Pontos(pontos: number): number {
+    if (pontos < 0) {
+      return 0;
+    } else if (pontos > 100) {
+      return 100;
+    } else {
+      return pontos;
+    }
   }
 }
