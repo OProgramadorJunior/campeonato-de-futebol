@@ -1,37 +1,64 @@
 import { Jogador } from "../jogador/jogador.entity";
+export class Goleiro extends Jogador {
+  private altura: number;
 
-export class jogadorGoleiro extends Jogador {
-    cobertura: number;
-    desarme: number;
+  private reflexo: number;
 
-    goleiro (nome, altura, reflexo) {
-        this.nome = nome,
-        this.altura = altura,
-        this.reflexo = reflexo,
-        this.score = 0;
+  public constructor(
+    pAltura: number,
+    pReflexo: number,
+    pNome: string,
+    pData: string,
+    pCamisa: number
+  ) {
+    super(pNome, pData, pCamisa);
+    this.altura = this.pontuacaoAltura(pAltura);
+    this.reflexo = this.reflexoPontos(pReflexo);
+    this.setHabilidade();
+    this.setFuncao();
+  }
+
+  public setAltura(pAltura: number) {
+    this.altura = this.pontuacaoAltura(pAltura);
+  }
+
+  public setReflexo(pReflexo: number) {
+    this.reflexo = this.reflexoPontos(pReflexo);
+}
+
+  public setHabilidade() {
+    this.habilidade = this.altura * 4 + this.reflexo * 6;
+  }
+
+  public setFuncao() {
+    this.funcao = "Goleiro";
+  }
+
+  public getAltura(): number {
+    return this.altura;
+  }
+
+  public getReflexo(): number {
+    return this.reflexo;
+  }
+
+  private pontuacaoAltura(pAltura: number): number {
+    if (pAltura > 210) {
+      return Math.round(210 * (100 / 210));
+    } else if (pAltura <= 210 && pAltura >= 0) {
+      return Math.round(pAltura * (100 / 210));
+    } else {
+      return 0;
     }
+  }
 
-    calculo_goleiro (jogador)
-    {
-        let altura = jogador.altura
-        let reflexo = jogador.reflexo
-
-    jogador.score = altura 6 + reflexo * 4;
-    console.log(jogador.score)
-    return jogador.score;
+  private reflexoPontos(pReflexo: number): number {
+    if (pReflexo < 0) {
+      return 0;
+    } else if (pReflexo > 100) {
+      return 100;
+    } else {
+      return pReflexo;
     }
-
-    score_altura (altura) //função para concatenar a pontuação de altura 0 a 100
-    {
-        let resultado
-        if (altura <= 210 && altura > 0)
-        {
-        resultado = Math.round(altura100/210);
-        }
-        else
-        {
-            console.log('Altura invalida!');
-        }
-        return resultado;
-    }
+  }
 }

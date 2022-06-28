@@ -1,14 +1,44 @@
 import { Jogador } from "../jogador/jogador.entity";
-export class jogadorDefesa extends Jogador {
-  cobertura: number;
-  desarme: number;
+export class Defensor extends Jogador {
+  private cobertura: number;
 
-  calculo_defensor(jogador) {
-    let cobertura = jogador.cobertura;
-    let desarme = jogador.desarme;
+  private desarme: number;
 
-    jogador.score = cobertura * 6 + desarme * 4;
-    console.log(jogador.score);
-    return jogador.score;
+  public constructor(
+    pCobertura: number,
+    pDesarme: number,
+    pNome: string,
+    pData: string,
+    pCamisa: number
+  ){
+    super(pNome, pData, pCamisa);
+    this.cobertura = pCobertura;
+    this.desarme = pDesarme;
+    this.setHabilidade();
+    this.setFuncao();
+  }
+
+  public setCobertura(pCobertura: number) {
+    this.cobertura = pCobertura;
+  }
+
+  public setDesarme(pDesarme: number) {
+    this.desarme = pDesarme;
+  }
+
+  public setHabilidade() {
+    this.habilidade = this.cobertura * 6 + this.desarme * 4;
+  }
+
+  public setFuncao() {
+    this.funcao = "Defensor";
+  }
+
+  public getCobertura(): number {
+    return this.cobertura;
+  }
+
+  public getDesarme(): number {
+    return this.desarme;
   }
 }
