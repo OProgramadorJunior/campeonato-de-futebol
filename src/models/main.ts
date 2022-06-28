@@ -11,3 +11,33 @@ estatísticas de times e jogadores. Na simulação, considere a pontuação tota
 tem a maior pontuação, tem mais chance de sair vitorioso). Além disso, se o time que estiver jogando em casa tem
 uma chance adicional. Você pode definir sua própria fórmula, mas ela deve estar explicada no código (javadoc).
 */
+
+import { Atacante } from "./jogadorAtacante/jogadorAtacante.entity";
+import { Goleiro } from "./jogadorGoleiro/jogadorGoleiro.entity";
+import { Time } from "./time/time.entity";
+
+export class App {
+    public static main() {
+        let g1:Goleiro = new Goleiro(181, 89,"Bruno", "2000-06-29", 0);
+        let a1:Atacante = new Atacante(40, 80, "Romario", "1976-07-11", 10);
+        let azul:Time = new Time("Azul");
+        
+        console.log("Nome: " + g1.getNome());
+        console.log("Idade: " + g1.getIdade());
+        console.log("Habilidade: " + g1.getHabilidade());
+        console.log("Camisa: " + g1.getCamisa());
+        console.log("Funcao: " + g1.getFuncao());
+        
+        console.log("\nNome: " + a1.getNome());
+        console.log("Idade: " + a1.getIdade());
+        console.log("Habilidade: " + a1.getHabilidade());
+        console.log("Camisa: " + a1.getCamisa());
+        console.log("Funcao: " + a1.getFuncao());
+        
+        azul.setJogador(g1);
+        azul.setJogador(a1);
+        console.log("\n" + azul.getJogadores());
+        console.log("Habilidade Time: " + azul.totalHabilidade());
+        
+    }
+}
