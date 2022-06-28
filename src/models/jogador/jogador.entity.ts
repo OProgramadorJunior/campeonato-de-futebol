@@ -1,5 +1,4 @@
-import { Time } from "../time/time.entity";
-export class Jogador extends Time {
+export class Jogador {
     id: number;
     private nome: string;
     protected idade: string;
