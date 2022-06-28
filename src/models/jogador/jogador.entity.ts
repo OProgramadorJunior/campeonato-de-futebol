@@ -12,9 +12,9 @@ export abstract class Jogador {
     
     funcao: string;
     
-    public abstract setHabilidade();
+    public abstract setHabilidade(): any;
     
-    public abstract setFuncao();
+    public abstract setFuncao(): any;
     
     public constructor (pNome: string, pData: string, pCamisa: number) {
         this.nome = pNome;

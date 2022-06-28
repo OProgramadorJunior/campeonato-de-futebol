@@ -12,9 +12,9 @@ tem a maior pontuação, tem mais chance de sair vitorioso). Além disso, se o t
 uma chance adicional. Você pode definir sua própria fórmula, mas ela deve estar explicada no código (javadoc).
 */
 
-import { Atacante } from "./jogadorAtacante/jogadorAtacante.entity";
-import { Goleiro } from "./jogadorGoleiro/jogadorGoleiro.entity";
-import { Time } from "./time/time.entity";
+import { Atacante } from "./models/jogadorAtacante/jogadorAtacante.entity";
+import { Goleiro } from "./models/jogadorGoleiro/jogadorGoleiro.entity";
+import { Time } from "./models/time/time.entity";
 
 export class App {
     public static main() {
