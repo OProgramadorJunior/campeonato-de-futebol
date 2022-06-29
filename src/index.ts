@@ -16,28 +16,28 @@ import { JogadorAtacante } from "./models/jogadorAtacante/jogadorAtacante.entity
 import { JogadorGoleiro } from "./models/jogadorGoleiro/jogadorGoleiro.entity";
 import { Time } from "./models/time/time.entity";
 
-export class App {
-    public static main() {
-        let g1:JogadorGoleiro = new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 0);
-        let a1:JogadorAtacante = new JogadorAtacante(40, 80, "Romario", "1976-07-11", 10);
-        let azul:Time = new Time("Azul");
-        
-        console.log("Nome: " + g1.getNome());
-        console.log("Idade: " + g1.getIdade());
-        console.log("Habilidade: " + g1.getHabilidade());
-        console.log("Camisa: " + g1.getCamisa());
-        console.log("Funcao: " + g1.getFuncao());
-        
-        console.log("\nNome: " + a1.getNome());
-        console.log("Idade: " + a1.getIdade());
-        console.log("Habilidade: " + a1.getHabilidade());
-        console.log("Camisa: " + a1.getCamisa());
-        console.log("Funcao: " + a1.getFuncao());
-        
-        azul.setJogador(g1);
-        azul.setJogador(a1);
-        console.log("\n" + azul.getJogadores());
-        console.log("Habilidade Time: " + azul.totalHabilidade());
-        
-    }
+async function main() {
+    let g1:JogadorGoleiro = new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 0);
+    let a1:JogadorAtacante = new JogadorAtacante(40, 80, "Romario", "1976-07-11", 10);
+    let azul:Time = new Time("Azul");
+    
+    console.log("Nome: " + g1.getNome());
+    console.log("Idade: " + g1.getIdade());
+    console.log("Habilidade: " + g1.getHabilidade());
+    console.log("Camisa: " + g1.getCamisa());
+    console.log("Funcao: " + g1.getFuncao());
+    
+    console.log("\nNome: " + a1.getNome());
+    console.log("Idade: " + a1.getIdade());
+    console.log("Habilidade: " + a1.getHabilidade());
+    console.log("Camisa: " + a1.getCamisa());
+    console.log("Funcao: " + a1.getFuncao());
+    
+    azul.setJogador(g1);
+    azul.setJogador(a1);
+    console.log("\n" + azul.getJogadores());
+    console.log("Habilidade Time: " + azul.totalHabilidade());
+    
 }
+
+main();
