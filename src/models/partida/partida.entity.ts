@@ -42,5 +42,87 @@ export class Partida {
     return this.golsVisitante;
   }
 
-  public Simulacao() {}
+  public showResultado() {
+    console.log("Resultado do jogo -----------------" +
+      "\nData: " + this.dataPartida +
+      "\nCasa: " + this.casa.getNomeTime() + ": " + this.golsCasa +
+      "\nVisitante: " + this.visitante.getNomeTime() + ": " + this.golsVisitante);
+  }
+
+  public Simulacao() {
+    let casaPorcentagem: number = 0;
+    let randomGol: number = 0;
+    let rand: Random = new Random();
+    randomGol = rand.nextInt(11);
+    if ((this.casa.totalHabilidade() > this.visitante.totalHabilidade())) {
+      casaPorcentagem = 70;
+    }
+    else {
+      casaPorcentagem = 60;
+    }
+
+    for (let i: number = 0; (i < 3); i++) {
+      if ((casaPorcentagem == 70)) {
+        if ((randomGol <= 6)) {
+          this.golCasa();
+        }
+        else if (((randomGol >= 7)
+          && (randomGol <= 9))) {
+          this.golVisitante();
+        }
+
+      }
+      else if ((randomGol <= 5)) {
+        this.golCasa();
+      }
+      else if (((randomGol >= 6)
+        && (randomGol <= 9))) {
+        this.golVisitante();
+      }
+
+    }
+
+    if ((this.golsCasa > this.golsVisitante)) {
+      this.casa.setVitorias();
+      this.visitante.setDerrotas();
+    }
+    else if ((this.golsCasa < this.golsVisitante)) {
+      this.casa.setDerrotas();
+      this.visitante.setVitorias();
+    }
+    else {
+      this.casa.setEmpates();
+      this.visitante.setEmpates();
+    }
+
+    this.showResultado();
+  }
+
+  private golCasa() {
+    this.setGolsCasa();
+    let randomJogador: number = 0;
+    let rand: Random = new Random();
+    randomJogador = rand.nextInt(2);
+    if ((randomJogador == 0)) {
+      this.casa.atacante1Gol();
+    }
+    else {
+      this.casa.atacante2Gol();
+    }
+
+  }
+
+  private golVisitante() {
+    this.setGolsVisitante();
+    let randomJogador: number = 0;
+    let rand: Random = new Random();
+    randomJogador = rand.nextInt(2);
+    if ((randomJogador == 0)) {
+      this.visitante.atacante1Gol();
+    }
+    else {
+      this.visitante.atacante2Gol();
+    }
+
+  }
 }

@@ -32,16 +32,24 @@ export class Time {
     this.defensor2 = null;
   }
 
-  public setVitorias(vitorias: number) {
-    this.vitorias = this.vitorias;
+  public atacante2Gol() {
+    this.atacante2.somaGol();
   }
 
-  public setDerrotas(derrotas: number) {
-    this.derrotas = this.derrotas;
+  public atacante1Gol() {
+    this.atacante1.somaGol();
   }
 
-  public setEmpates(empates: number) {
-    this.empates = this.empates;
+  public setVitorias() {
+    this.vitorias++;
+  }
+
+  public setDerrotas() {
+    this.derrotas++;
+  }
+
+  public setEmpates() {
+    this.empates++;
   }
 
   public setJogador(pJogador: Jogador) {
@@ -52,6 +60,9 @@ export class Time {
     }
   }
 
+  public getNomeTime(): string {
+    return this.nome;
+  }
 
   public getVitorias(): number {
     return this.vitorias;
