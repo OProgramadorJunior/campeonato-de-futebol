@@ -1,5 +1,5 @@
+import { Jogador } from '../jogador/jogador.entity';
 import { Partida } from "../partida/partida.entity";
-import { Jogador } from "../jogador/jogador.entity";
 
 export class Time {
   private nome: string;
@@ -10,26 +10,26 @@ export class Time {
 
   private empates: number;
 
-  private goleiro: Jogador;
+  private goleiro: Jogador | null;
 
-  private atacante1: Jogador;
+  private atacante1: Jogador | null;
 
-  private atacante2: Jogador;
+  private atacante2: Jogador | null;
 
-  private defensor1: Jogador;
+  private defensor1: Jogador | null;
 
-  private defensor2: Jogador;
+  private defensor2: Jogador | null;
 
   public constructor(nome: string) {
-    this.nome = this.nome;
+    this.nome = nome;
     this.vitorias = 0;
     this.derrotas = 0;
     this.empates = 0;
-    // this.goleiro = null;
-    // this.atacante1 = null;
-    // this.atacante2 = null;
-    // this.defensor1 = null;
-    // this.defensor2 = null;
+    this.goleiro = null;
+    this.atacante1 = null;
+    this.atacante2 = null;
+    this.defensor1 = null;
+    this.defensor2 = null;
   }
 
   public setVitorias(vitorias: number) {
@@ -83,7 +83,7 @@ export class Time {
     return this.vitorias * 3 + this.empates;
   }
 
-  private getNome(pJogador: Jogador): string {
+  private getNome(pJogador: Jogador | null): string {
     if (pJogador == null) {
       return "Ninguem";
     } else {
