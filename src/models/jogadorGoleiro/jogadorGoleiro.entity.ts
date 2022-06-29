@@ -1,5 +1,5 @@
 import { Jogador } from "../jogador/jogador.entity";
-export class Goleiro extends Jogador {
+export class JogadorGoleiro extends Jogador {
   private altura: number;
 
   private reflexo: number;

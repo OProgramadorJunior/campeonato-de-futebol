@@ -1,5 +1,5 @@
 import { Jogador } from "../jogador/jogador.entity";
-export class Defensor extends Jogador {
+export class JogadorDefensor extends Jogador {
   private cobertura: number;
 
   private desarme: number;

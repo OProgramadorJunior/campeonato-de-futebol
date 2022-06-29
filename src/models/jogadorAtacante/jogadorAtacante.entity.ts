@@ -1,5 +1,5 @@
 import { Jogador } from "../jogador/jogador.entity";
-export class Atacante extends Jogador {
+export class JogadorAtacante extends Jogador {
   private velocidade: number;
 
   private tecnica: number;

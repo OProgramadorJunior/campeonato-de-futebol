@@ -1,4 +1,4 @@
-export abstract class Jogador {
+export class Jogador {
     
     private nome: string;
     
@@ -11,10 +11,6 @@ export abstract class Jogador {
     habilidade: number;
     
     funcao: string;
-    
-    public abstract setHabilidade(): any;
-    
-    public abstract setFuncao(): any;
     
     public constructor (pNome: string, pData: string, pCamisa: number) {
         this.nome = pNome;
