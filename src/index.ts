@@ -17,26 +17,31 @@ import { JogadorGoleiro } from "./models/jogadorGoleiro/jogadorGoleiro.entity";
 import { Time } from "./models/time/time.entity";
 
 async function main() {
-    let g1 = new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 0);
-    let a1 = new JogadorAtacante(40, 80, "Romario", "1976-07-11", 10);
-    let azul = new Time("Azul");
+
+    let time1 = new Time("Azul");
     
-    console.log("Nome: " + g1.getNome());
-    console.log("Idade: " + g1.getIdade());
-    console.log("Habilidade: " + g1.getHabilidade());
-    console.log("Camisa: " + g1.getCamisa());
-    console.log("Funcao: " + g1.getFuncao());
+    try {
+        time1.setarJogador(new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 0));
+        time1.setarJogador(new JogadorAtacante(40, 80, "Romario", "1976-07-11", 10));
+        time1.setarJogador(new JogadorAtacante(40, 80, "Robinho", "1980-07-11", 11));
     
-    console.log("\nNome: " + a1.getNome());
-    console.log("Idade: " + a1.getIdade());
-    console.log("Habilidade: " + a1.getHabilidade());
-    console.log("Camisa: " + a1.getCamisa());
-    console.log("Funcao: " + a1.getFuncao());
-    
-    azul.setJogador(g1);
-    azul.setJogador(a1);
-    console.log("\n" + azul.getJogadores());
-    console.log("Habilidade Time: " + azul.totalHabilidade());
+
+        console.log('Lista de jogadores do time ' + time1.getNomeTime() + ':');
+
+        for (const jogador of time1.getJogadores()) {
+            console.log('-------');
+            console.log("Nome: " + jogador.getNome());
+            console.log("Idade: " + jogador.getIdade());
+            console.log("Habilidade: " + jogador.getHabilidade());
+            console.log("Camisa: " + jogador.getCamisa());
+            console.log("Funcao: " + jogador.getFuncao());
+        }
+     
+        console.log("Habilidade Time: " + time1.totalHabilidade());
+     
+    } catch (error) {
+        console.error(error);
+    }
     
 }
 
