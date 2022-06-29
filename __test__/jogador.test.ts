@@ -2,7 +2,6 @@ import { Jogador } from "../src/models/jogador/jogador.entity";
 import { JogadorAtacante } from "../src/models/jogadorAtacante/jogadorAtacante.entity";
 import { JogadorDefensor } from "../src/models/jogadorDefesa/jogadorDefesa.entity";
 import { JogadorGoleiro } from "../src/models/jogadorGoleiro/jogadorGoleiro.entity";
-import { Time } from "../src/models/time/time.entity";
 import { Partida } from "../src/models/partida/partida.entity";
 
 describe("adds 1 + 2 to equal 3", () => {
@@ -10,7 +9,7 @@ describe("adds 1 + 2 to equal 3", () => {
   expect(jogador.getNome()).toBe('Robinho');
 });
 
-let aReal1 = new JogadorAtacante(82, 90, "Romario", "2000-07-20", 10);
+var aReal1 = new JogadorAtacante(82, 90, "Romario", "2000-07-20", 10);
 let aReal2 = new JogadorAtacante(70, 83, "Jorge", "1997-08-02", 9);
 let dReal1 = new JogadorDefensor(55, 81, "Tobias", "1997-08-02", 29);
 let dReal2 = new JogadorDefensor(50, 84, "Rogerio", "1997-08-02", 32);
