@@ -17,9 +17,9 @@ import { JogadorGoleiro } from "./models/jogadorGoleiro/jogadorGoleiro.entity";
 import { Time } from "./models/time/time.entity";
 
 async function main() {
-    let g1:JogadorGoleiro = new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 0);
-    let a1:JogadorAtacante = new JogadorAtacante(40, 80, "Romario", "1976-07-11", 10);
-    let azul:Time = new Time("Azul");
+    let g1 = new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 0);
+    let a1 = new JogadorAtacante(40, 80, "Romario", "1976-07-11", 10);
+    let azul = new Time("Azul");
     
     console.log("Nome: " + g1.getNome());
     console.log("Idade: " + g1.getIdade());
