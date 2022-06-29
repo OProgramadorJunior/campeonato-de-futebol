@@ -51,9 +51,7 @@ export class Partida {
 
   public Simulacao() {
     let casaPorcentagem: number = 0;
-    let randomGol: number = 0;
-    let rand: Random = new Random();
-    randomGol = rand.nextInt(11);
+    let randomGol: number = Math.floor(Math.random() * 11);
     if ((this.casa.totalHabilidade() > this.visitante.totalHabilidade())) {
       casaPorcentagem = 70;
     }
@@ -100,9 +98,7 @@ export class Partida {
 
   private golCasa() {
     this.setGolsCasa();
-    let randomJogador: number = 0;
-    let rand: Random = new Random();
-    randomJogador = rand.nextInt(2);
+    let randomJogador: number = Math.floor(Math.random() * 2);
     if ((randomJogador == 0)) {
       this.casa.atacante1Gol();
     }
@@ -114,9 +110,7 @@ export class Partida {
 
   private golVisitante() {
     this.setGolsVisitante();
-    let randomJogador: number = 0;
-    let rand: Random = new Random();
-    randomJogador = rand.nextInt(2);
+    let randomJogador: number = Math.floor(Math.random() * 2);
     if ((randomJogador == 0)) {
       this.visitante.atacante1Gol();
     }
