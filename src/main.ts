@@ -12,14 +12,14 @@ tem a maior pontuação, tem mais chance de sair vitorioso). Além disso, se o t
 uma chance adicional. Você pode definir sua própria fórmula, mas ela deve estar explicada no código (javadoc).
 */
 
-import { Atacante } from "./models/jogadorAtacante/jogadorAtacante.entity";
-import { Goleiro } from "./models/jogadorGoleiro/jogadorGoleiro.entity";
+import { JogadorAtacante } from "./models/jogadorAtacante/jogadorAtacante.entity";
+import { JogadorGoleiro } from "./models/jogadorGoleiro/jogadorGoleiro.entity";
 import { Time } from "./models/time/time.entity";
 
 export class App {
     public static main() {
-        let g1:Goleiro = new Goleiro(181, 89,"Bruno", "2000-06-29", 0);
-        let a1:Atacante = new Atacante(40, 80, "Romario", "1976-07-11", 10);
+        let g1:JogadorGoleiro = new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 0);
+        let a1:JogadorAtacante = new JogadorAtacante(40, 80, "Romario", "1976-07-11", 10);
         let azul:Time = new Time("Azul");
         
         console.log("Nome: " + g1.getNome());
