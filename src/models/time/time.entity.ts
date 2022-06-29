@@ -33,11 +33,11 @@ export class Time {
   }
 
   public atacante2Gol() {
-    this.atacante2.somaGol();
+    this.atacante2?.somaGol();
   }
 
   public atacante1Gol() {
-    this.atacante1.somaGol();
+    this.atacante1?.somaGol();
   }
 
   public setVitorias() {
