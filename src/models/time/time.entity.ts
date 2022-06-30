@@ -2,11 +2,11 @@ import { JogadorDefensor } from './../jogadorDefesa/jogadorDefesa.entity';
 import { JogadorAtacante } from './../jogadorAtacante/jogadorAtacante.entity';
 import { JogadorGoleiro } from './../jogadorGoleiro/jogadorGoleiro.entity';
 import { Jogador } from '../jogador/jogador.entity';
-import { Partida } from '../partida/partida.entity';
 
 const LIMITE_GOLEIRO_TIME = 1;
 const LIMITE_ATACANTE_TIME = 2;
 const LIMITE_DEFENSOR_TIME = 2;
+const LIMITE_TIME_COMPLETO = 5;
 export class Time {
   private nome: string;
 
@@ -117,7 +117,7 @@ export class Time {
       obj => obj.getCamisa() !== jogador.getCamisa(),
     );
     if (totalJogadores === this.jogadores.length) {
-      throw new Error("Jogador não encontrado para remoção.");
+      throw new Error('Jogador não encontrado para remoção.');
     }
     return 'Jogador removido.';
   }
@@ -126,5 +126,12 @@ export class Time {
     return this.jogadores.reduce((a, b) => {
       return a + b.getHabilidade();
     }, 0);
+  }
+
+  /**
+   * getTimeCompleto
+   */
+  public getTimeCompleto(): boolean {
+    return this.jogadores.length === LIMITE_TIME_COMPLETO;
   }
 }

@@ -7,6 +7,15 @@ export class Partida {
   private golsVisitante: number;
 
   public constructor(dataPartida: Date, casa: Time, visitante: Time) {
+
+    if (!casa.getTimeCompleto()) {
+      throw new Error("O time da casa está com jogadores insuficientes.");
+    }
+
+    if (!visitante.getTimeCompleto()) {
+      throw new Error("O time do visitante está com jogadores insuficientes.");
+    }
+
     this.dataPartida = dataPartida;
     this.casa = casa;
     this.visitante = visitante;
@@ -43,52 +52,51 @@ export class Partida {
   }
 
   public showResultado() {
-    console.log("Resultado do jogo -----------------" +
-      "\nData: " + this.dataPartida +
-      "\nCasa: " + this.casa.getNome() + ": " + this.golsCasa +
-      "\nVisitante: " + this.visitante.getNome() + ": " + this.golsVisitante);
+    console.log(
+      'Resultado do jogo -----------------' +
+        '\nData: ' +
+        this.dataPartida +
+        '\nCasa: ' +
+        this.casa.getNome() +
+        ': ' +
+        this.golsCasa +
+        '\nVisitante: ' +
+        this.visitante.getNome() +
+        ': ' +
+        this.golsVisitante,
+    );
   }
 
   public Simulacao() {
     let casaPorcentagem: number = 0;
     let randomGol: number = Math.floor(Math.random() * 11);
-    if ((this.casa.totalHabilidade() > this.visitante.totalHabilidade())) {
+    if (this.casa.totalHabilidade() > this.visitante.totalHabilidade()) {
       casaPorcentagem = 70;
-    }
-    else {
+    } else {
       casaPorcentagem = 60;
     }
 
-    for (let i: number = 0; (i < 3); i++) {
-      if ((casaPorcentagem == 70)) {
-        if ((randomGol <= 6)) {
+    for (let i: number = 0; i < 3; i++) {
+      if (casaPorcentagem == 70) {
+        if (randomGol <= 6) {
           this.golCasa();
-        }
-        else if (((randomGol >= 7)
-          && (randomGol <= 9))) {
+        } else if (randomGol >= 7 && randomGol <= 9) {
           this.golVisitante();
         }
-
-      }
-      else if ((randomGol <= 5)) {
+      } else if (randomGol <= 5) {
         this.golCasa();
-      }
-      else if (((randomGol >= 6)
-        && (randomGol <= 9))) {
+      } else if (randomGol >= 6 && randomGol <= 9) {
         this.golVisitante();
       }
-
     }
 
-    if ((this.golsCasa > this.golsVisitante)) {
+    if (this.golsCasa > this.golsVisitante) {
       this.casa.setVitorias();
       this.visitante.setDerrotas();
-    }
-    else if ((this.golsCasa < this.golsVisitante)) {
+    } else if (this.golsCasa < this.golsVisitante) {
       this.casa.setDerrotas();
       this.visitante.setVitorias();
-    }
-    else {
+    } else {
       this.casa.setEmpates();
       this.visitante.setEmpates();
     }
