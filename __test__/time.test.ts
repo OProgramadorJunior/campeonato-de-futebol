@@ -3,7 +3,7 @@ import { JogadorAtacante } from "../src/models/jogadorAtacante/jogadorAtacante.e
 import { JogadorDefensor } from "../src/models/jogadorDefesa/jogadorDefesa.entity";
 import { JogadorGoleiro } from "../src/models/jogadorGoleiro/jogadorGoleiro.entity";
 
-describe('testes de cadastros', () => {
+describe('TESTE TIME', () => {
 
   test('cadastrar vários times', () => {
     let RealMadrid = new Time('RealMadrid');
