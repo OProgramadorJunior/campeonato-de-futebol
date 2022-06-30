@@ -22,12 +22,16 @@ async function main() {
         time2.setarJogador(new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 8));
         time2.setarJogador(new JogadorAtacante(40, 80, "Romario", "1976-07-11", 10));
         time2.setarJogador(new JogadorAtacante(40, 80, "Robinho", "1980-07-11", 11));
-        time1.setarJogador(new JogadorDefensor(40, 80, "Def 1", "1980-07-11", 12));
-        time1.setarJogador(new JogadorDefensor(40, 80, "Def 2", "1980-07-11", 9));
+        time2.setarJogador(new JogadorDefensor(40, 80, "Def 1", "1980-07-11", 12));
+        time2.setarJogador(new JogadorDefensor(40, 80, "Def 2", "1980-07-11", 9));
     
         jogos.push(new Partida(new Date('2022-29-06'), time1, time2));
+        jogos.push(new Partida(new Date('2022-29-07'), time1, time2));
 
-     
+        for (const partida of jogos) {
+            partida.Simulacao();
+        }
+
     } catch (error) {
         console.error(error);
     }
