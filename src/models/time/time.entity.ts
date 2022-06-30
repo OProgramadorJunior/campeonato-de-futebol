@@ -72,9 +72,9 @@ export class Time {
     return this.vitorias * 3 + this.empates;
   }
 
-  private possuiCamisa(pJogador: Jogador): boolean {
+  private possuiCamisa(jogador: Jogador): boolean {
     return Boolean(
-      this.jogadores.find(obj => obj.getCamisa() === pJogador.getCamisa()),
+      this.jogadores.find(obj => obj.getCamisa() === jogador.getCamisa()),
     );
   }
 
@@ -112,9 +112,13 @@ export class Time {
   }
 
   public removerJogador(jogador: Jogador): string {
+    const totalJogadores = this.jogadores.length;
     this.jogadores = this.jogadores.filter(
       obj => obj.getCamisa() !== jogador.getCamisa(),
     );
+    if (totalJogadores === this.jogadores.length) {
+      throw new Error("Jogador não encontrado para remoção.");
+    }
     return 'Jogador removido.';
   }
 
