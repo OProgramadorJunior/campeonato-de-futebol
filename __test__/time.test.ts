@@ -6,9 +6,9 @@ describe('testes de cadastros', () => {
     let RealMadrid = new Time('RealMadrid');
     let Barcelona = new Time('Barcelona');
     let Chapecoense = new Time('Chapecoense');
-    expect(RealMadrid.getNomeTime()).toEqual('RealMadrid');
-    expect(Barcelona.getNomeTime()).toEqual('Barcelona');
-    expect(Chapecoense.getNomeTime()).toEqual('Chapecoense');
+    expect(RealMadrid.getNome()).toEqual('RealMadrid');
+    expect(Barcelona.getNome()).toEqual('Barcelona');
+    expect(Chapecoense.getNome()).toEqual('Chapecoense');
   });
 
 });

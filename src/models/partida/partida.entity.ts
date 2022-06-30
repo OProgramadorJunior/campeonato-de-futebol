@@ -45,8 +45,8 @@ export class Partida {
   public showResultado() {
     console.log("Resultado do jogo -----------------" +
       "\nData: " + this.dataPartida +
-      "\nCasa: " + this.casa.getNomeTime() + ": " + this.golsCasa +
-      "\nVisitante: " + this.visitante.getNomeTime() + ": " + this.golsVisitante);
+      "\nCasa: " + this.casa.getNome() + ": " + this.golsCasa +
+      "\nVisitante: " + this.visitante.getNome() + ": " + this.golsVisitante);
   }
 
   public Simulacao() {
@@ -98,25 +98,11 @@ export class Partida {
 
   private golCasa() {
     this.setGolsCasa();
-    let randomJogador: number = Math.floor(Math.random() * 2);
-    if ((randomJogador == 0)) {
-      this.casa.atacante1Gol();
-    }
-    else {
-      this.casa.atacante2Gol();
-    }
-
+    return this.casa.getTotalDeGols();
   }
 
   private golVisitante() {
     this.setGolsVisitante();
-    let randomJogador: number = Math.floor(Math.random() * 2);
-    if ((randomJogador == 0)) {
-      this.visitante.atacante1Gol();
-    }
-    else {
-      this.visitante.atacante2Gol();
-    }
-
+    return this.casa.getTotalDeGols();
   }
 }

@@ -26,7 +26,7 @@ async function main() {
         time1.setarJogador(new JogadorAtacante(40, 80, "Robinho", "1980-07-11", 11));
     
 
-        console.log('Lista de jogadores do time ' + time1.getNomeTime() + ':');
+        console.log('Lista de jogadores do time ' + time1.getNome() + ':');
 
         for (const jogador of time1.getJogadores()) {
             console.log('-------');
