@@ -1,7 +1,8 @@
+import { JogadorAtacante } from './../src/models/jogadorAtacante/jogadorAtacante.entity';
+
 describe('TESTE JOGADORATACANTE', () => {
-
-  test('Check literal value', () => {
-    expect(1).toBe(1);
+  test('teste criacao do JogadorAtacante', () => {
+    let jogador = new JogadorAtacante(40, 80, 'Romario', '1976-07-11', 10);
+    expect(jogador.getNome()).toBe('Romario');
   });
-
 });

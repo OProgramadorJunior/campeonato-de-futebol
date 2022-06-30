@@ -1,7 +1,9 @@
+import { JogadorGoleiro } from './../src/models/jogadorGoleiro/jogadorGoleiro.entity';
 describe('TESTE JOGADORGOLEIRO', () => {
 
-  test('Check literal value', () => {
-    expect(1).toBe(1);
+  test('teste criacao do JogadorGoleiro', () => {
+    let jogador = new JogadorGoleiro(181, 89,"Bruno", "2000-06-29", 8)
+    expect(jogador.getNome()).toBe('Bruno');
   });
 
 });
