@@ -46,4 +46,36 @@ describe('TESTE TIME', () => {
     expect(RealMadrid.totalHabilidade()).toEqual(3720);
   });
 
+  test('classificar os times de acordo com suas estatisticas', () => {
+    let RealMadrid = new Time('RealMadrid');
+    RealMadrid.setarJogador(new JogadorAtacante(82, 90, "Romario", "2000-07-20", 10));
+    RealMadrid.setarJogador(new JogadorAtacante(70, 83, "Jorge", "1997-08-02", 9));
+    RealMadrid.setarJogador(new JogadorDefensor(55, 81, "Tobias", "1997-08-02", 29));
+    RealMadrid.setarJogador(new JogadorDefensor(50, 84, "Rogerio", "1997-08-02", 32));
+    RealMadrid.setarJogador(new JogadorGoleiro(184, 72, "Timuca", "1997-08-02", 7));
+
+    RealMadrid.setVitorias();
+    RealMadrid.setVitorias();
+
+    RealMadrid.setEmpates();
+    RealMadrid.setEmpates();
+
+    expect(RealMadrid.getVitorias()).toEqual(2);
+    expect(RealMadrid.getEmpates()).toEqual(2);
+  });
+
+  test('teste adicionar 2 goleiros', () => {
+    let RealMadrid = new Time('RealMadrid');
+    RealMadrid.setarJogador(new JogadorGoleiro(184, 72, "Timuca", "1997-08-02", 7));
+
+    expect(() => RealMadrid.setarJogador(new JogadorGoleiro(194, 22, "Hakuna", "1992-08-02", 8))).toThrow('Já existe um goleiro.');
+  });
+
+  test('teste adicionar 2 jogadores camisas iguais', () => {
+    let RealMadrid = new Time('RealMadrid');
+    RealMadrid.setarJogador(new JogadorGoleiro(184, 72, "Timuca", "1997-08-02", 7));
+
+    expect(() => RealMadrid.setarJogador(new JogadorGoleiro(194, 22, "Hakuna", "1992-08-02", 7))).toThrow('Já existe um jogador com essa camiseta.');
+  });
+
 });
